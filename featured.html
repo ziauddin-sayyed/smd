@@ -1,0 +1,25 @@
+<br>
+<div class="row">
+
+    <div id="featured" class="col s12 m4 l3 ">
+
+
+
+    </div>
+
+</div>
+
+<script>
+var feat_cat = ["sea_food","mutton","chicken"];
+
+$.each(feat_cat, function (k, v) {
+    var cat_nm = v.replace(/_/g," ");
+    var bg = 'background: transparent url("images/featured/'+v+'.png") no-repeat center;background-size: contain';
+
+    $('#featured').append("<div class='box' style='"+bg+"' ></div>");
+
+});
+
+
+
+</script>

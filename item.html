@@ -1,0 +1,88 @@
+
+<style>
+
+.offr_div{
+    margin-top: 0.5vw;
+    font-size: 140%;
+}
+
+
+</style>
+<br>
+<div class="row">
+
+    <div class="col s12 m4 l5 prod_card" id="prod_card">
+        <div class="col-content">
+            <div class="prod_desc col s12 m12 l12"></div>
+            <div class="col s2 m2 l2"><img src="images/vegan.png" alt=""></div>
+            <div class="prod_img col s8 m8 l8"  ></div>
+            <div class="col s2 m2 l2 offr_div zero_pad"></div>
+            <div class="col s12 m12 l12" >
+                <select class="prod_selec col s7 m7 l7" >
+                </select>
+                <div class="col s5 m5 l5 mrp_div"></div>
+            </div>
+
+            <div class="col s12 m7 l7"> 
+                <div class="cart_ctrl">
+                    <button class="cust_btn subt_cart">-</button>
+                    <span class="material-icons">shopping_cart</span>
+                    <button class="cust_btn add_cart">+</button>&nbsp;
+                    <span class="item_count"> 0 </span> <small>In cart</small>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+</div>
+<script>
+        var v = local_get('items')[local_get('selected_item')];
+        var item  = $("#prod_card");
+        item.find('.prod_desc').text(v.name);
+        item.attr('item_id',v.id);
+        item.attr('img',v.image);
+        item.find('.mrp_div').html('MRP : <s class="cut_amnt">'+v.price+'</s>');
+
+        var item_categ = item.category_id;
+        var optns = '';
+        var item_type = v.quantity +' '+ units[v.unit];
+        var price = v.price;
+
+        if(v.discount){
+            price = v.discount;
+            item.find('.offr_div').text((v.price - v.discount)+"/-");
+            item.find('.col-content').attr('style','background: transparent url("images/icons/offer_bg.svg") no-repeat 99% 13%;background-size:17%;');
+        }
+        optns += '<option sel_itm_id="'+v.id+'" price="'+price+'" value="'+item_type+'" >'+item_type+' - &#x20B9; '+price+'</option>';
+        item.find('.prod_selec').append(optns);
+        item.find('.item_count').attr('item_id',v.id);
+        item.find('.prod_selec').addClass('selec_no_arrow');
+        // item.find('.card_mrp').text("MRP - "+v.price);
+
+        var bgrnd = {
+            'background-color' :'transparent',
+            'background-image' :'url("images/'+v.image+'")',
+            'background-repeat': 'no-repeat',
+            'background-origin': 'centre',
+            'background-size': 'contain',
+        }
+
+        if(v.stock == 0){
+
+            bgrnd["-webkit-filter"] = "grayscale(100%)";
+            bgrnd["filter"] = "grayscale(100%)";
+
+            item.find('.add_cart').attr("disabled",true);
+            item.find('.subt_cart').attr("disabled",true);
+            item.find('.item_count').text("Out of stock");
+            item.find('small').text("");
+        }else{
+            item.find('.add_cart').attr("disabled",false);
+            item.find('.subt_cart').attr("disabled",false);
+        }
+        item.find('.prod_img').css(bgrnd);
+
+</script>
+

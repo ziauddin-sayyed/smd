@@ -1,0 +1,66 @@
+<div class="header-card">
+    <div>
+        <span onclick="navigator('teacher/dashboard')" class="a">&#10094;</span>
+        &emsp;
+        Notification
+    </div>
+</div>
+
+<div id="notif_list">
+    <div class="full_card">
+        <div class="notification">
+            <div>
+                <div class="circle">
+                    26
+                </div>
+                <div class="notif_month">Dec</div>
+            </div>
+            <div class="notification_head">
+                <div class="notification_head_title">
+                    Dgd
+                </div>
+                <div> <i class="light_grey">From Admin</i> </div>
+            </div>
+            <div style="margin-left: auto;">
+                <i class="fa fa-paperclip light_grey notif_attachm" aria-hidden="true"></i><br>
+                <div> <i class="notif_time">06:47am</i> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var user = local_get('user_det')[0];
+    var ins = user.user_details[0].institute_id;
+    var url = '/manage-notification/?user_id='+user.id;
+    var type = 'GET';
+    var params = {};
+    var notifs = requester(url,type,params);
+    var notif_card = $('.full_card:first');
+    var sent_by_type = {'1':'Admin','2':'Teacher'};
+    var short_months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    $('#notif_list').empty();
+    // console.log(notifs.results);
+    // var dt = new Date(),month = '' + (d.getMonth() + 1),day = '' + d.getDate(),year = d.getFullYear();
+    // (lects.lectures.length == 0) ? $('#lect_list').text('No subject assigned.') : false;
+    $.each(notifs.results, function (k, v) {
+        
+        var notif  = notif_card.clone();
+        var notif_dt =  new Date(v.datetime);
+
+        notif.find('.circle').text(notif_dt.getDate());
+        notif.find('.notification_head_title').text(v.description);
+        notif.find('.notification_head > .light_grey').text(sent_by_type[v.sent_by]);
+        notif.find('.notif_month').text(short_months[notif_dt.getMonth()]);
+        notif.find('.notif_time').text(notif_dt.getHours()+':'+notif_dt.getMinutes());
+        if(v.attachment != null){
+            notif.find('.notif_attachm').attr('link',v.attachment);
+        }else{
+            notif.find('.notif_attachm').css('display','none');
+        }
+        
+        $('#notif_list').append(notif);
+    
+    });
+</script>

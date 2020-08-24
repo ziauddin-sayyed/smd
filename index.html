@@ -1,0 +1,132 @@
+<html lang="en"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="SMDmart is simplifying our daily needs. ">
+    <title>SMD mart</title>
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <link rel="icon" href="images/favicon.svg" >
+    <meta name="theme-color" content="#f9ffff">
+    <link href="css/Inconsolata.css" rel="stylesheet" type="text/css">
+    <link href="css/mat_icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/common.css?v=7">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/common.js?v=7"></script>
+    
+</head>
+<body>
+    <div class="row nav_div">
+        <div class="col s4 m2 l2 tabl_div zero_pad" onclick="navto('home')">
+
+            <div class="row_div" id="logo">
+                &nbsp;
+            </div>
+
+        </div>
+        <div class="col s8 m9 l10 "  style="margin-top: 3vh;">
+
+            <div class="col s7 m6 l10 " > 
+                &nbsp;
+
+            </div>
+
+
+            <div class="col s5 m6 l6 zero_pad phone_only" > 
+                <div class="row_div "  onclick="navto('cart')">
+                    <span class="cart_count">0</span>
+                    <span class="material-icons">shopping_cart</span>
+                    &emsp;
+                    &#x20B9; <span class="cart_amount" > 0</span>
+                </div>
+            </div>
+
+            <div class="col s0 m3 l2 pc_only" style="margin-top: 1vh; cursor: pointer;">
+                <div class="row_div" onclick="navto('cart')">
+                    <span class="cart_count">0</span>
+                    <span class="material-icons">shopping_cart</span>
+                    &emsp;
+                    &#x20B9; <span class="cart_amount">0</span>
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="col s12 m6 l8 zero_pad" style="margin-top: -2vh;" > 
+
+            <div class="col s2 m6 l6 zero_pad phone_only"  onclick="navto('cart')">
+                &nbsp;
+                <span style="margin-top: 1.7vh;" class="material-icons">menu</span>
+            </div>
+
+            
+            <div class="col s10 m6 l12 " > 
+                <input type="text" placeholder="Search for product" id="search_inp">
+                <div id="search_res"></div>
+            </div>
+        </div>
+
+
+        <div class="col s12 m6 l6 zero_pad" > 
+
+            <div class="col s4 m6 l2 zero_pad" > 
+                <span class="material-icons" style="vertical-align: middle;">location_on</span>Deliver To 
+            </div>
+
+            <div class="col s4 m6 l2 zero_pad" > 
+                <select name="" id="pincode">
+                    <option value="400066">400066</option><option value="400092">400092</option><option value="400068">400068</option><option value="401074">401074</option><option value="401101">401101</option><option value="401104">401104</option><option value="401105">401105</option><option value="401107">401107</option><option value="401208">401208</option><option value="401202">401202</option> 
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+    var cart_items_count = 0
+    var cart_amount_sum = 0
+    
+    $.each(local_get('cart'), function (k, v) {
+        cart_amount_sum += parseFloat(v.price);
+        cart_items_count++;
+    });
+    $('.cart_amount').text(cart_amount_sum);
+    $('.cart_count').text(cart_items_count);
+
+    </script>
+
+    <center id="main_container">
+
+
+    </center>
+
+<footer>
+<br>
+    <div class="row">
+
+        <div class="col s4 m4 l2">Contact Us</div>
+        <div class="col s8 m4 l10">+91 9892809656</div>
+
+        <div class="col s4 m4 l2">Follow Us</div>
+        <div class="col s8 m4 l10">
+            <span><img src="images/icons/fb.png" alt=""></span>
+            <!-- <span><img src="images/icons/tw.png" alt=""></span> -->
+        </div>
+
+    </div>
+
+    <!-- <center>Designed and maintained by Al-Baqi Computers ©2020 </center> -->
+</footer>
+
+</body>
+
+</html>
+
