@@ -316,16 +316,20 @@ table{
 
 #search_res{
     position: absolute;
-    background-color: #eeeeee;
+    background-color: #fafafa;
     width: max-content;
     z-index: 1;
-    color: #777777;
+    color: #5c5c5c;
     text-align: center;
     margin-top: -1vh;
+    border: #5c5c5c solid 1px;
+    border-radius: 0px 0px 10px 10px;
 }
 #search_res div{
     padding: 0.5vh 2vh;
+    font-size: 2vh;
 }
+
 .zero_pad{
     padding: 0 !important;
 }

@@ -263,8 +263,8 @@ $(document).ready(function() {
     // navto('admin');
     // logout();
     clearInterval();
-    navto('home');
-    // navto('product');
+    // navto('home');
+    navto('product');
     // navto('item');
 
     // function playAudio() {
@@ -453,8 +453,9 @@ $(document).on('click','#confirm_btn',function(){
     if(tester == ""){
         var ord = requester(url,type,params);
         if(!isNaN(parseInt(ord))){
-            print_order_pdf(ord);
             local_set('cart',[]);
+            alert("Order placed with order id :"+ord+".");
+            print_order_pdf(ord);
             location.reload();
         }else{
             console.log(ord);
@@ -594,8 +595,11 @@ $(document).on('change','.prod_selec',function(){
     if(v.discount){
         card.find('.offr_div').text((v.price - v.discount)+"/-");
         card.find('.col-content').attr('style','background: transparent url("images/icons/offer_bg.svg") no-repeat 2% 12%;background-size:17%;');
+        card.find('.card_mrp').css("text-decoration","line-through");
+
     }else{
         card.find('.col-content').css('background','initial');
+        card.find('.card_mrp').css("text-decoration","initial");
     }
 
     card.find('.prod_desc').text(v.name);

@@ -59,8 +59,11 @@
         item.find('.prod_desc').text(v.name);
         item.attr('item_id',v.id);
         item.attr('img',v.image);
-        (v.discount) ? item.find('.offr_div').text((v.price - v.discount)+"/-") : false;
         item.find('.card_mrp').text("MRP - "+v.price);
+        if(v.discount){
+            item.find('.card_mrp').css("text-decoration","line-through");
+            item.find('.offr_div').text((v.price - v.discount)+"/-");
+        }
 
         var optns = '';
         $.each(i, function (k1, v1){
