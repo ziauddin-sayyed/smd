@@ -263,8 +263,8 @@ $(document).ready(function() {
     // navto('admin');
     // logout();
     clearInterval();
-    // navto('home');
-    navto('product');
+    navto('home');
+    // navto('product');
     // navto('item');
 
     // function playAudio() {
@@ -475,7 +475,7 @@ function print_order_pdf(ord_id) {
     var cart_items = local_get('cart');var cart_group_items = {};var cart_total = 0;
     var doc = new jsPDF('l', 'mm', [297, 210]);
     var head = "<div><h1>SmdMart.in</h1><h1>Order Id: "+ord_id+"</h1><h5>Placed on : "+dateTime+"</h5></div>";
-    var cart_table = "<table border='1' sytle='width:`720px`'><tr><td>Name</td><td>Price</td><td>Quan</td><td>Units</td><td>Amount</td></tr>";
+    var cart_table = "<table border='1' sytle='width:`720px`'><tr><td>Name</td><td>Price</td><td>Quantity</td><td>Units</td><td>Amount</td></tr>";
     $.each(cart_items, function (k, v) {
         cart_group_items[v.id] == undefined ? cart_group_items[v.id] = [] : false;
         cart_group_items[v.id].push(v);
