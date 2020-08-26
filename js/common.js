@@ -468,12 +468,12 @@ $(document).on('click','#confirm_btn',function(){
         if(!isNaN(parseInt(ord))){
             // var mop = $("input[name='mop']:checked").val();
             // console.log(mop);
-            // alert("Order placed with order id :"+ord+". Invoice is downloaded.");
+            alert("Order placed with order id :"+ord+". Invoice is downloaded.");
             print_order_pdf(ord);
-            // local_set('cart',[]);
-            // location.reload();
+            local_set('cart',[]);
+            location.reload();
         }else{
-            console.log(ord);
+            // console.log(ord);
             update_cart_page();
         }
     }else{
@@ -509,7 +509,7 @@ function print_order_pdf(ord_id) {
     cart_table += "<tr><td>Total</td><td></td><td></td><td></td><td>"+cart_total+"</td></tr></table>";
 
 
-    doc.fromHTML(head+cart_table, 5, 5, {'width': 720},function(bla){
+    doc.fromHTML(head+cart_table, 1, 1, {'width': 760},function(bla){
         doc.setFont("helvetica");
         doc.setFontType("bold");
         doc.setFontSize(9);
