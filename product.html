@@ -72,7 +72,7 @@
 
             if(v1.discount){
                 price = v1.discount;cut_amnt=v1.price;
-                item.find('.col-content').attr('style','background: transparent url("images/icons/offer_bg.svg") no-repeat 2% 12%;background-size:17%;');
+                item.find('.col-content').attr('style','background: white url("images/icons/offer_bg.svg") no-repeat 2% 12%;background-size:17%;');
             }
             optns += '<option sel_itm_id="'+v1.id+'" price="'+price+'" value="'+item_type+'" >'+item_type+' - &#x20B9; '+price+'</option>';
 
@@ -89,13 +89,23 @@
             item.find('.subt_cart').attr("disabled",true);
             item.find('.item_count').text("Out of stock");
             item.find('small').text("");
+            var bc_img = {
+                "background-color":'transparent, white',
+                "background-image":'url("images/icons/out_of_stock.png"), url("images/'+v.image+'")',
+                "background-position":" center, center",
+                "background-repeat":" no-repeat, no-repeat",
+                "background-size": "contain",
+                "-webkit-filter":"grayscale(100%)",
+                "filter":"grayscale(100%)",
+            }
+            item.find('.prod_img').css(bc_img);
         }else{
             item.find('.add_cart').attr("disabled",false);
             item.find('.subt_cart').attr("disabled",false);
+            item.find('.prod_img').attr('style','background: transparent url("images/'+v.image+'") no-repeat center;background-size: contain; '+img_bw);
         }
 
         item.find('.item_count').attr('item_id',v.id);
-        item.find('.prod_img').attr('style','background: transparent url("images/'+v.image+'") no-repeat center;background-size: contain; '+img_bw);
         $('#prod_list').append(item);
 
     });

@@ -32,12 +32,10 @@ var categories = {
     "16" : "COLD_DRINKS",
     "17" : "DAIRY",
     "18" : "FROZEN",
-    "19" : "FRUITS",
     "20" : "PERSONAL_CARE",
     "21" : "STAPLES",
-    "22" : "VEGETABLES",
-    "23" : "SEA_FOOD",
-    "24" : "MUTTON",
+    "22" : "FRUITS_&_VEGETABLES",
+    "23" : "NON_VEG",
     "25" : "CAKES_&_ICECREAM",
     "26" : "SNACKS_&_FARSAN",
     "28" : "BABY_CARE",
@@ -150,11 +148,20 @@ function update_home() {
             $('#categ_slider').append("<div class='box' categ_id='"+parseInt(k)+"'><div class='box_img'>"+cat_nm+"<br class=''><img src='images/categories/"+v+".jpg' onerror='ImgError(this)' alt=''></div></div>");
     });
 
-    $.each(local_get("items"), function (k, v) {
+    var disc_arr = [];
 
+    $.each(local_get("items"), function (k, v) {
         if(v.discount){
-            
-            var offr  = offr_card.clone();
+            v["id"] = k;
+            v["off"] = (parseFloat(v.price) - parseFloat(v.discount));
+            disc_arr.push(v);
+        }
+    });
+    disc_arr = arr_key_sort(disc_arr,"off");
+
+    $.each(disc_arr, function (i, v) {
+
+            var offr  = offr_card.clone();var k = v['id'];
             offr.find('.itm_nam').text(v.name);
             offr.find('b').text(v.discount);
             offr.find('s').text(v.price);
@@ -172,11 +179,17 @@ function update_home() {
             }
             offr.find('.itm_img').css(bgrnd);
             $('#offer_slid').append(offr);
-        }
-        // var categ_card = $('.categ_banner:first');
     });
-    
+
 }
+
+function arr_key_sort(arr,key) {
+    arr.sort(function(a,b) {
+        return  b[key] - a[key];
+    });
+    return arr;
+}
+
 
 //------------------------------------------------------------------------------------------
 
@@ -453,10 +466,12 @@ $(document).on('click','#confirm_btn',function(){
     if(tester == ""){
         var ord = requester(url,type,params);
         if(!isNaN(parseInt(ord))){
-            local_set('cart',[]);
-            alert("Order placed with order id :"+ord+".");
+            // var mop = $("input[name='mop']:checked").val();
+            // console.log(mop);
+            // alert("Order placed with order id :"+ord+". Invoice is downloaded.");
             print_order_pdf(ord);
-            location.reload();
+            // local_set('cart',[]);
+            // location.reload();
         }else{
             console.log(ord);
             update_cart_page();
@@ -473,8 +488,9 @@ function print_order_pdf(ord_id) {
     var day = new Date();var time = day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds();
     var dateTime = format_date(day)+' '+time;
     var cart_items = local_get('cart');var cart_group_items = {};var cart_total = 0;
-    var doc = new jsPDF('l', 'mm', [297, 210]);
-    var head = "<div><h1>SmdMart.in</h1><h1>Order Id: "+ord_id+"</h1><h5>Placed on : "+dateTime+"</h5></div>";
+    var doc = new jsPDF('l', 'mm', [297, 210]);var margin = 0;
+    var mop = $("input[name='mop']:checked").val();
+    var head = "<div><img width='45' height='15' src='images/logo_new.jpeg' alt='' /><h1>Order Id: "+ord_id+"</h1><h5>Placed on : "+dateTime+" Mode of Payment : "+mop+"</h5></div>";
     var cart_table = "<table border='1' sytle='width:`720px`'><tr><td>Name</td><td>Price</td><td>Quantity</td><td>Units</td><td>Amount</td></tr>";
     $.each(cart_items, function (k, v) {
         cart_group_items[v.id] == undefined ? cart_group_items[v.id] = [] : false;
@@ -492,11 +508,16 @@ function print_order_pdf(ord_id) {
 
     cart_table += "<tr><td>Total</td><td></td><td></td><td></td><td>"+cart_total+"</td></tr></table>";
 
-    doc.setFont("helvetica");
-    doc.setFontType("bold");
-    doc.setFontSize(9);
-    doc.fromHTML(head+cart_table, 5, 5,{'width': 720});
-    doc.save("smdmartOrder_"+ord_id+".pdf");
+
+    doc.fromHTML(head+cart_table, 5, 5, {'width': 720},function(bla){
+        doc.setFont("helvetica");
+        doc.setFontType("bold");
+        doc.setFontSize(9);
+        doc.save("OrderId_"+ord_id+":SmdMart.pdf");
+    },margin);
+
+    // doc.fromHTML(head+cart_table, 5, 5,{'width': 720});
+    // doc.save();
     
 }
 
@@ -508,7 +529,7 @@ $(document).on('keyup','#search_inp',function(){
     if(val.length > 1){
         var lis_count = 0;
         $.each(local_get('items'), function (k, v) {
-            if(((v.name).toLowerCase()).indexOf(val) !== -1 && lis_count < 5){
+            if(((v.key_words).toLowerCase()).indexOf(val) !== -1 && lis_count < 5){
                 $("#search_res").append("<div class='srch_lis' item="+v.id+">"+v.name+"</div>");
                 lis_count++;
             }
@@ -587,6 +608,8 @@ $(document).on('click','.tab_nav',function(){
 
 //--------------------------------------TAB CLICK---------------------------------------
 $(document).on('change','.prod_selec',function(){
+
+    
     var card = $(this).closest('.prod_card');
     var prod_id = $(this).find("option:selected" ).attr('sel_itm_id');
     var itms = local_get('items');var img_bw="";
@@ -594,35 +617,42 @@ $(document).on('change','.prod_selec',function(){
 
     if(v.discount){
         card.find('.offr_div').text((v.price - v.discount)+"/-");
-        card.find('.col-content').attr('style','background: transparent url("images/icons/offer_bg.svg") no-repeat 2% 12%;background-size:17%;');
+        card.find('.col-content').attr('style','background: white url("images/icons/offer_bg.svg") no-repeat 2% 12%;background-size:17%;');
         card.find('.card_mrp').css("text-decoration","line-through");
-
     }else{
-        card.find('.col-content').css('background','initial');
+        card.find('.col-content').css({'background':'initial','background-color':'white'});
         card.find('.card_mrp').css("text-decoration","initial");
     }
 
     card.find('.prod_desc').text(v.name);
     card.find('.item_count').attr('item_id',v.id);
     card.find('.item_count').text("0");
+    card.find("small").text("In cart");
     card.attr('item_id',v.id);
     card.attr('img',v.image);
-    console.log(v.price);
     card.find('.card_mrp').text("MRP - "+v.price);
-    
 
     if(v.stock == 0){
         img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
-        card.find('.add_cart').attr("disabled",true);
-        card.find('.subt_cart').attr("disabled",true);
+        card.find('.add_cart,.subt_cart').attr("disabled",true);
         card.find('.item_count').text("Out of stock");
         card.find('small').text("");
+        var bc_img = {
+            "background-color":'transparent, white',
+            "background-image":'url("images/icons/out_of_stock.png"), url("images/'+v.image+'")',
+            "background-position":" center, center",
+            "background-repeat":" no-repeat, no-repeat",
+            "background-size": "contain",
+            "-webkit-filter":"grayscale(100%)",
+            "filter":"grayscale(100%)",
+        }
+        card.find('.prod_img').css(bc_img);
     }else{
         card.find('.add_cart').attr("disabled",false);
         card.find('.subt_cart').attr("disabled",false);
+        card.find('.prod_img').attr('style','background: white url("images/'+v.image+'") no-repeat center;background-size: contain; '+img_bw);
     }
 
-    card.find('.prod_img').attr('style','background: transparent url("images/'+v.image+'") no-repeat center;background-size: contain; '+img_bw);
 
     cart_itm_count();
 });
