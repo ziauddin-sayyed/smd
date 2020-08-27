@@ -83,8 +83,6 @@ function requester(end_point, req_type, params) {
 
 
 function navigator(view_name) {
-    // console.log((document.location.hash).replace(/#/g,"") , view_name);
-    // console.log(back);
     clearInterval();
     $('#main_container').empty().html('<img style="margin-top:45vh" src="images/loading.gif" alt="Loading" />');
     $.ajax({
