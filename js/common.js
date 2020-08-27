@@ -1,5 +1,5 @@
 var slide_ind = 1;
-var url = ((document.location.host).indexOf("localhost") !== -1) ? 'http://localhost/mat/api.php' : 'http://smdmart.in/api.php';
+var url = ((document.location.host).indexOf("localhost") !== -1) ? 'http://localhost/mat/api.php' : 'https://api.smdmart.in/smd/api.php';
 
 document.addEventListener('scroll', function (event) {
     var scroll = window.scrollY;
