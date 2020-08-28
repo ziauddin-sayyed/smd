@@ -2,3 +2,4 @@ js/html2canvas.min.js
 js/jspdf.debug.js
 js/jspdf.es.js
 temp/error_log
+*.php
