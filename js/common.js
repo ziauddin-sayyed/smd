@@ -1,5 +1,5 @@
 var slide_ind = 1;
-var url = ((document.location.host).indexOf("localhost") !== -1) ? 'http://localhost/mat/api.php' : 'https://api.smdmart.in/smd/api.php';
+var url = ((document.location.host).indexOf("localhost") !== -1) ? 'http://localhost/mat_api/api.php' : 'https://api.smdmart.in/smd/api.php';
 
 document.addEventListener('scroll', function (event) {
     var scroll = window.scrollY;
@@ -121,6 +121,7 @@ var params = {'api':'get_items'};
 var all_items =  JSON.parse(requester(url,type,params));
 // console.log(all_items);
 local_set('items',all_items);
+local_set('sub_cats',JSON.parse(requester(url,type,{'api':'get_sub_cat'})));
 
 
 function update_home() {
@@ -342,6 +343,28 @@ $(document).on('touchstart','body',function(event){
     ($(realTarget).closest("#offer_slid").length) ? $("#offer_slid").attr('stop_slid',1) : $("#offer_slid").attr('stop_slid',0);
 
 });
+
+$(document).on('click','.sub_cat_btn',function(){
+
+    $('.sub_cat_btn').removeClass('active');
+    $(this).addClass('active');
+    // $('.prod_card').css('display','none');
+    if($(this).attr("subcat_id") == 0){
+        $('.prod_card').css('display','block');
+        // $('.prod_card')
+    }else{
+        var sel_sub_cat = $(this).attr("subcat_id");
+        $('.prod_card').each(function() {
+            // console.log(sel_sub_cat);
+            // console.log($(this).attr("sub_cat_id"));
+            if(sel_sub_cat != $(this).attr("sub_cat_id")){
+                $(this).css('display','none');
+            }
+        });
+
+    }
+});
+
 
 
 
