@@ -650,6 +650,7 @@ $(document).on('change','.prod_selec',function(){
     card.find('.item_count').text("0");
     card.find("small").text("In cart");
     card.attr('item_id',v.id);
+    card.attr('sub_cat_id',v.sub_cat_id);
     card.attr('img',v.image);
     card.find('.card_mrp').text("MRP - "+v.price);
 
