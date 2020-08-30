@@ -488,19 +488,14 @@ $(document).on('click','#confirm_btn',function(){
     if(tester == ""){
         var ord = requester(url,type,params);
         if(!isNaN(parseInt(ord))){
-
-            alert("Order placed with order id :"+ord+". Invoice is downloaded.");
             var inv =  print_order_pdf(ord);
             if(inv){
+                alert("Order placed with order id :"+ord+". Invoice is downloaded.");
                 local_set('cart',[]);
-                location.reload();
+                update_cart_page();
+                navto("home");
             }
-            // $.when(print_order_pdf(ord))
-            // .then(function(){local_set('cart',[])})
-            // .done(function(){location.reload()});
-
         }else{
-            // console.log(ord);
             update_cart_page();
         }
     }else{
@@ -535,14 +530,13 @@ function print_order_pdf(ord_id) {
 
     cart_table += "<tr><td>Total</td><td></td><td></td><td></td><td>"+cart_total+"</td></tr></table>";
 
-    doc.fromHTML(head+cart_table, 1, 1, {'width': 760});
-    doc.setFont("helvetica");
-    doc.setFontType("bold");
-    doc.setFontSize(9);
-    doc.save("OrderId_"+ord_id+":SmdMart.pdf");
-    // doc.fromHTML(head+cart_table, 5, 5,{'width': 720});
-    // doc.save();
-    return true;
+
+    return doc.fromHTML(head+cart_table, 1, 1, {'width': 760},function(bla){
+        doc.setFont("helvetica");
+        doc.setFontType("bold");
+        doc.setFontSize(9);
+        doc.save("OrderId_"+ord_id+":SmdMart.pdf");
+    },margin);
 }
 
 //--------------------------------------SEARCH---------------------------------------
