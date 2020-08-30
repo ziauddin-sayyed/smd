@@ -89,7 +89,6 @@ function requester(end_point, req_type, params) {
 
 function navigator(view_name) {
     clearInterval();
-    $('#main_container').empty().html('<img style="margin-top:45vh" src="images/loading.gif" alt="Loading" />');
     $.ajax({
         url:view_name+".html",
         type:'GET',
@@ -101,6 +100,7 @@ function navigator(view_name) {
 }
 
 function navto(page) {
+    $('#main_container').empty().html('<img style="margin-top:45vh" src="images/loading.gif" alt="Loading" />');
     document.location.hash = page;
 }
 
