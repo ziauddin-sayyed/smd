@@ -488,12 +488,13 @@ $(document).on('click','#confirm_btn',function(){
     if(tester == ""){
         var ord = requester(url,type,params);
         if(!isNaN(parseInt(ord))){
-            // var mop = $("input[name='mop']:checked").val();
-            // console.log(mop);
+
             alert("Order placed with order id :"+ord+". Invoice is downloaded.");
             print_order_pdf(ord);
-            local_set('cart',[]);
-            location.reload();
+            // $.when(print_order_pdf(ord))
+            // .then(function(){local_set('cart',[])})
+            // .done(function(){location.reload()});
+
         }else{
             // console.log(ord);
             update_cart_page();
@@ -536,6 +537,7 @@ function print_order_pdf(ord_id) {
         doc.setFontType("bold");
         doc.setFontSize(9);
         doc.save("OrderId_"+ord_id+":SmdMart.pdf");
+        local_set('cart',[]);
     },margin);
 
     // doc.fromHTML(head+cart_table, 5, 5,{'width': 720});
@@ -571,10 +573,10 @@ function update_item_page() {
 
     var v = local_get('items')[local_get('selected_item')];
     var item  = $("#prod_card");
+    item.find('.prod_selec').empty();
     item.find('.prod_desc').text(v.name);
     item.attr('item_id',v.id);
     item.attr('img',v.image);
-    item.find('.mrp_div').html('MRP : <s class="cut_amnt">'+v.price+'</s>');
 
     var item_categ = item.category_id;
     var optns = '';
@@ -585,6 +587,11 @@ function update_item_page() {
         price = v.discount;
         item.find('.offr_div').text((v.price - v.discount)+"/-");
         item.find('.col-content').attr('style','background: transparent url("images/icons/offer_bg.svg") no-repeat 99% 13%;background-size:17%;');
+        item.find('.mrp_div').html('MRP : <s class="cut_amnt">'+v.price+'</s>');
+    }else{
+        item.find('.offr_div').text("");
+        item.find('.col-content').attr('style','background: initial');
+        item.find('.mrp_div').html("");
     }
     optns += '<option sel_itm_id="'+v.id+'" price="'+price+'" value="'+item_type+'" >'+item_type+' - &#x20B9; '+price+'</option>';
     item.find('.prod_selec').append(optns);
