@@ -1,9 +1,6 @@
-<br>
-
-<div id="sub_cat_slider" class="disable-scrollbars slide_wrapper" stop_slid=0>
+<div id="sub_cat_slider" class="" >
     <div class="sub_cat_btn " subcat_id="0">All Selected</div>
 </div>
-
 <div class="row">
 
     <div id="prod_list" class="col s12 m12 l12">
@@ -119,6 +116,10 @@
     var sub_cats = local_get('sub_cats');
 
     var subcat_btn = $('.sub_cat_btn:first');
+
+    $('#sub_cat_slider').empty();
+    $('#sub_cat_slider').append(subcat_btn);
+
 
     $.each(sub_cats, function (k, v) {
 
