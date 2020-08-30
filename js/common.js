@@ -75,9 +75,14 @@ function requester(end_point, req_type, params) {
         type: req_type,
         async: false,
         cache: false,
-        timeout: 30000,
+        timeout: 3000,
         data: params,
-        success: function(resp) {}
+        success: function(resp) {},
+        error: function(x,t,m){
+            if(t==="timeout") {
+                requester(end_point, req_type, params);
+            }
+        }        
     }).responseText;
 }
 
@@ -358,7 +363,7 @@ $(document).on('click','.sub_cat_btn',function(){
             }
         });
     }
-    
+
 });
 
 
@@ -547,7 +552,8 @@ $(document).on('keyup','#search_inp',function(){
         var lis_count = 0;
         $.each(local_get('items'), function (k, v) {
             if(((v.key_words).toLowerCase()).indexOf(val) !== -1 && lis_count < 5){
-                $("#search_res").append("<div class='srch_lis' item="+v.id+">"+v.name+"</div>");
+                var quan = v.quantity +' '+ units[v.unit];
+                $("#search_res").append("<div class='srch_lis' item="+v.id+">"+v.name+" - "+quan+"</div>");
                 lis_count++;
             }
         });
