@@ -488,10 +488,13 @@ $(document).on('click','#confirm_btn',function(){
     if(tester == ""){
         var ord = requester(url,type,params);
         if(!isNaN(parseInt(ord))){
-            // var mop = $("input[name='mop']:checked").val();
-            // console.log(mop);
+
             alert("Order placed with order id :"+ord+". Invoice is downloaded.");
             print_order_pdf(ord);
+            // $.when(print_order_pdf(ord))
+            // .then(function(){local_set('cart',[])})
+            // .done(function(){location.reload()});
+
         }else{
             // console.log(ord);
             update_cart_page();
@@ -535,7 +538,6 @@ function print_order_pdf(ord_id) {
         doc.setFontSize(9);
         doc.save("OrderId_"+ord_id+":SmdMart.pdf");
         local_set('cart',[]);
-        location.reload();
     },margin);
 
     // doc.fromHTML(head+cart_table, 5, 5,{'width': 720});
