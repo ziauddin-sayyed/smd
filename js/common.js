@@ -571,10 +571,10 @@ function update_item_page() {
 
     var v = local_get('items')[local_get('selected_item')];
     var item  = $("#prod_card");
+    item.find('.prod_selec').empty();
     item.find('.prod_desc').text(v.name);
     item.attr('item_id',v.id);
     item.attr('img',v.image);
-    item.find('.mrp_div').html('MRP : <s class="cut_amnt">'+v.price+'</s>');
 
     var item_categ = item.category_id;
     var optns = '';
@@ -585,6 +585,11 @@ function update_item_page() {
         price = v.discount;
         item.find('.offr_div').text((v.price - v.discount)+"/-");
         item.find('.col-content').attr('style','background: transparent url("images/icons/offer_bg.svg") no-repeat 99% 13%;background-size:17%;');
+        item.find('.mrp_div').html('MRP : <s class="cut_amnt">'+v.price+'</s>');
+    }else{
+        item.find('.offr_div').text("");
+        item.find('.col-content').attr('style','background: initial');
+        item.find('.mrp_div').html("");
     }
     optns += '<option sel_itm_id="'+v.id+'" price="'+price+'" value="'+item_type+'" >'+item_type+' - &#x20B9; '+price+'</option>';
     item.find('.prod_selec').append(optns);
