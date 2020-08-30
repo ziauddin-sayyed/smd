@@ -492,8 +492,6 @@ $(document).on('click','#confirm_btn',function(){
             // console.log(mop);
             alert("Order placed with order id :"+ord+". Invoice is downloaded.");
             print_order_pdf(ord);
-            local_set('cart',[]);
-            location.reload();
         }else{
             // console.log(ord);
             update_cart_page();
@@ -536,6 +534,8 @@ function print_order_pdf(ord_id) {
         doc.setFontType("bold");
         doc.setFontSize(9);
         doc.save("OrderId_"+ord_id+":SmdMart.pdf");
+        local_set('cart',[]);
+        location.reload();
     },margin);
 
     // doc.fromHTML(head+cart_table, 5, 5,{'width': 720});
