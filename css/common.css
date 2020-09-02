@@ -44,6 +44,12 @@ footer center{
     width: 100%;
 }
 
+#sub_cat_slider.navbar_fixed{
+
+    top: 18vh;
+}
+
+
 #logo{
     background: black url("../images/logo_new.png") no-repeat;
     background-position: -0.7vw;
@@ -389,7 +395,7 @@ table{
     display: inline-block;
     cursor: pointer;
     font-weight: 600;
-    right: 1.5vw;
+    right: 21vw;
     top: 7.5vh;
     color: white;
     position: fixed;
@@ -436,14 +442,13 @@ table{
         margin-top:initial;        
 
     }
-    
     .sub_cat_btn {
         min-width: 30vw;
     }
-
-
     .pc_only{display: none;}
     .phone_only{display: initial;}
+    #selected_count{right:1.5vw;}
+
 }
 
 
