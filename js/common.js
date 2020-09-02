@@ -282,8 +282,8 @@ $(document).ready(function() {
     // logout();
     clearInterval();
     // navto('product');
-    navto('home');
-    // navto('product');
+    // navto('home');
+    navto('product');
     // navto('item');
 
     // function playAudio() {
@@ -723,7 +723,7 @@ $(document).on('change','.prod_selec',function(){
     card.find('.card_mrp').text("MRP - "+v.price);
 
     if(v.stock == 0){
-        img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
+        // img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
         card.find('.add_cart,.subt_cart').attr("disabled",true);
         card.find('.item_count').text("Out of stock");
         card.find('small').text("");
@@ -733,8 +733,6 @@ $(document).on('change','.prod_selec',function(){
             "background-position":" center, center",
             "background-repeat":" no-repeat, no-repeat",
             "background-size": "contain",
-            "-webkit-filter":"grayscale(100%)",
-            "filter":"grayscale(100%)",
         }
         card.find('.prod_img').css(bc_img);
     }else{

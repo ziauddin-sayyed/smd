@@ -90,7 +90,7 @@
         (Object.keys(i).length < 2) ? item.find('.prod_selec').addClass('selec_no_arrow') : false;
 
         if(v.stock == 0){
-            img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
+            // img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
             item.find('.add_cart').attr("disabled",true);
             item.find('.subt_cart').attr("disabled",true);
             item.find('.item_count').text("Out of stock");
@@ -101,8 +101,6 @@
                 "background-position":" center, center",
                 "background-repeat":" no-repeat, no-repeat",
                 "background-size": "contain",
-                "-webkit-filter":"grayscale(100%)",
-                "filter":"grayscale(100%)",
             }
             item.find('.prod_img').css(bc_img);
         }else{
