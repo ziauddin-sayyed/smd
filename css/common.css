@@ -45,7 +45,7 @@ footer center{
 }
 
 #sub_cat_slider.navbar_fixed{
-    top: 32vw;
+    top: 17vh;
 }
 
 
@@ -447,6 +447,10 @@ table{
     .pc_only{display: none;}
     .phone_only{display: initial;}
     #selected_count{right:1.5vw;}
+
+    #sub_cat_slider.navbar_fixed{
+        top: 32vw;
+    }    
 
 }
 
