@@ -1,6 +1,9 @@
-<div id="sub_cat_slider" class="" >
+<div id="sub_cat_slider" class="slide_wrapper" >
     <div class="sub_cat_btn " subcat_id="0">All Selected</div>
 </div>
+
+<span id="selected_count" class=""></span>
+
 <div class="row">
 
     <div id="prod_list" class="col s12 m12 l12">
@@ -131,8 +134,9 @@
         }
 
     });
-    subcat_btn.addClass('active');
+    subcat_btn.addClass('active').addClass('move');
 
+    $("#selected_count").text('('+$('.prod_card').length+')');
     cart_itm_count();
 
     (Object.keys(item_grps).length == 0) ? $('#prod_list').append("<h3>Sorry no prodcuts found.</h3>") : false;

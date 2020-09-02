@@ -343,6 +343,13 @@ table{
     color: red;
 }
 
+.visibl_prod{
+
+}
+.hidden_prod{
+    display: none;
+}
+
 .slide_wrapper{
     overflow-x: scroll;
     max-height: 27vh;
@@ -353,7 +360,7 @@ table{
     scroll-behavior: smooth;
 }
 #sub_cat_slider{
-margin: 0.5vh 0;
+    margin: 0.5vh 0;
 }
 .sub_cat_btn {
     display: inline-block;
@@ -370,7 +377,25 @@ margin: 0.5vh 0;
 .sub_cat_btn.active{
     background-color: #45a79a;
     color: white;
+    position: fixed;
+    z-index: 1;
 }
+.move{
+    left: 60vw;
+    top: 7vh;
+}
+
+#selected_count{
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 600;
+    right: 1.5vw;
+    top: 7.5vh;
+    color: white;
+    position: fixed;
+    z-index: 1;
+}
+
 
 @media screen and (min-device-width : 240px) and (max-device-width : 800px){
     #logo{
