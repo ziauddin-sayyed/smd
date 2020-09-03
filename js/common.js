@@ -282,8 +282,8 @@ $(document).ready(function() {
     // logout();
     clearInterval();
     // navto('product');
-    // navto('home');
-    navto('product');
+    navto('home');
+    // navto('product');
     // navto('item');
 
     // function playAudio() {
