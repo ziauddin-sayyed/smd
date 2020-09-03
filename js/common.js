@@ -585,6 +585,7 @@ function update_item_page() {
     item.find('.prod_desc').text(v.name);
     item.attr('item_id',v.id);
     item.attr('img',v.image);
+    (v.is_veg == 0) ? item.find('.veg_nv').attr("src","images/icons/nveg.png") : false;
 
     var item_categ = item.category_id;
     var optns = '';
@@ -719,6 +720,7 @@ $(document).on('change','.prod_selec',function(){
     card.find('.item_count').text("0");
     card.find("small").text("In cart");
     card.attr('item_id',v.id);
+    (v.is_veg == 0) ? card.find('.veg_nv').attr("src","images/icons/nveg.png") : false;
     card.attr('sub_cat_id',v.sub_cat_id);
     card.attr('img',v.image);
     card.find('.card_mrp').text("MRP - "+v.price);
