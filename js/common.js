@@ -3,8 +3,10 @@ var url = ((document.location.host).indexOf("localhost") !== -1) ? 'http://local
 
 document.addEventListener('scroll', function (event) {
     var scroll = window.scrollY;
-    if ($('.nav_div').length) {
-        var nav_offset_top = $('.nav_div').height();
+    var nav_offset_top = 25;
+    var min_body_height = nav_offset_top * 10;
+    // console.log($('body').height(),nav_offset_top);
+    if ($('body').height() > min_body_height) {
         (scroll >= nav_offset_top)? $(".nav_div").addClass("navbar_fixed") : $(".nav_div").removeClass("navbar_fixed");
         (scroll >= nav_offset_top)? $("#sub_cat_slider").addClass("navbar_fixed") : $("#sub_cat_slider").removeClass("navbar_fixed");
     }
