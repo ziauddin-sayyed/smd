@@ -1,6 +1,9 @@
-<div id="sub_cat_slider" class="" >
+<div id="sub_cat_slider" class="slide_wrapper" >
     <div class="sub_cat_btn " subcat_id="0">All Selected</div>
 </div>
+
+<span id="selected_count" class=""></span>
+
 <div class="row">
 
     <div id="prod_list" class="col s12 m12 l12">
@@ -9,7 +12,7 @@
                 <div class="prod_desc col s12 m12 l12"></div>
                 <div class="col s2 m2 l2 offr_div"></div>
                 <div class="prod_img col s8 m8 l8"  ></div>
-                <div class="col s2 m2 l2"><img src="images/vegan.png" alt=""></div>
+                <div class="col s2 m2 l2"><img class="veg_nv" src="images/icons/veg.png" alt=""></div>
                 <div class="col s12 m12 l12" >
                     <select class="prod_selec col s7 m7 l7" >
                     </select>
@@ -60,6 +63,7 @@
         item.attr('item_id',v.id);
         // console.log(v.sub_cat_id);
         item.attr('sub_cat_id',v.sub_cat_id);
+        (v.is_veg == 0) ? item.find('.veg_nv').attr("src","images/icons/nveg.png") : false;
         
         item.attr('img',v.image);
         item.find('.card_mrp').text("MRP - "+v.price);
@@ -87,7 +91,7 @@
         (Object.keys(i).length < 2) ? item.find('.prod_selec').addClass('selec_no_arrow') : false;
 
         if(v.stock == 0){
-            img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
+            // img_bw = " -webkit-filter: grayscale(100%);filter: grayscale(100%); ";
             item.find('.add_cart').attr("disabled",true);
             item.find('.subt_cart').attr("disabled",true);
             item.find('.item_count').text("Out of stock");
@@ -98,8 +102,6 @@
                 "background-position":" center, center",
                 "background-repeat":" no-repeat, no-repeat",
                 "background-size": "contain",
-                "-webkit-filter":"grayscale(100%)",
-                "filter":"grayscale(100%)",
             }
             item.find('.prod_img').css(bc_img);
         }else{
@@ -131,8 +133,10 @@
         }
 
     });
+    // subcat_btn.addClass('active').addClass('move');
     subcat_btn.addClass('active');
 
+    $("#selected_count").text('Showing : '+$('.prod_card').length);
     cart_itm_count();
 
     (Object.keys(item_grps).length == 0) ? $('#prod_list').append("<h3>Sorry no prodcuts found.</h3>") : false;
