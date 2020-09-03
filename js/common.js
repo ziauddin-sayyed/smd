@@ -282,8 +282,8 @@ $(document).ready(function() {
     // logout();
     clearInterval();
     // navto('product');
-    navto('home');
-    // navto('product');
+    // navto('home');
+    navto('product');
     // navto('item');
 
     // function playAudio() {
@@ -355,7 +355,8 @@ $(document).on('click','.sub_cat_btn',function(){
 
     $('.sub_cat_btn').removeClass('active').removeClass('move');
 
-    $(this).addClass('active').addClass('move');
+    $(this).addClass('active');
+    // $(this).addClass('active').addClass('move');
 
     $('.prod_card').removeClass('hidden_prod');
 
@@ -375,7 +376,7 @@ $(document).on('click','.sub_cat_btn',function(){
 
     console.log(shon_prods);
 
-    $("#selected_count").text('('+shon_prods+')');
+    $("#selected_count").text('Showing : '+shon_prods);
 
 });
 

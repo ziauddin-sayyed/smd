@@ -132,9 +132,10 @@
         }
 
     });
-    subcat_btn.addClass('active').addClass('move');
+    // subcat_btn.addClass('active').addClass('move');
+    subcat_btn.addClass('active');
 
-    $("#selected_count").text('('+$('.prod_card').length+')');
+    $("#selected_count").text('Showing : '+$('.prod_card').length);
     cart_itm_count();
 
     (Object.keys(item_grps).length == 0) ? $('#prod_list').append("<h3>Sorry no prodcuts found.</h3>") : false;

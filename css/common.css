@@ -361,7 +361,7 @@ table{
     display: flex;
     overflow-y: hidden;
     background-color:white;
-    transition: all 0.5s ease 0.5s;
+    /* transition: all 0.5s ease 0.5s; */
     scroll-behavior: smooth;
 }
 #sub_cat_slider{
@@ -382,7 +382,7 @@ table{
 .sub_cat_btn.active{
     background-color: #45a79a;
     color: white;
-    position: fixed;
+    /* position: fixed; */
     z-index: 1;
 }
 .move{
@@ -394,11 +394,14 @@ table{
     display: inline-block;
     cursor: pointer;
     font-weight: 600;
-    right: 21vw;
-    top: 7.5vh;
-    color: white;
+    /* right: 21vw; */
+    left: 1.5vw;
+    top: 23vh;
+    /* color: white; */
+    /* background-color: white; */
     position: fixed;
     z-index: 1;
+    font-size: 1.5vh;
 }
 
 
@@ -446,7 +449,10 @@ table{
     }
     .pc_only{display: none;}
     .phone_only{display: initial;}
-    #selected_count{right:1.5vw;}
+    #selected_count{
+        /* right:1.5vw; */
+        top: calc(42vw - 0.3vh);
+    }
 
     #sub_cat_slider.navbar_fixed{
         top: 32vw;
