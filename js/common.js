@@ -4,8 +4,8 @@ var url = ((document.location.host).indexOf("localhost") !== -1) ? 'http://local
 document.addEventListener('scroll', function (event) {
     var scroll = window.scrollY;
     var nav_offset_top = 25;
-    var min_body_height = nav_offset_top * 10;
-    // console.log($('body').height(),nav_offset_top);
+    var min_body_height = $(".nav_div").height() * 10;
+    // console.log(min_body_height);
     if ($('body').height() > min_body_height) {
         (scroll >= nav_offset_top)? $(".nav_div").addClass("navbar_fixed") : $(".nav_div").removeClass("navbar_fixed");
         (scroll >= nav_offset_top)? $("#sub_cat_slider").addClass("navbar_fixed") : $("#sub_cat_slider").removeClass("navbar_fixed");
@@ -285,7 +285,7 @@ $(document).ready(function() {
     clearInterval();
     // navto('product');
     navto('home');
-    // navto('product');
+    // navto('cart');
     // navto('item');
 
     // function playAudio() {
@@ -492,10 +492,12 @@ $(document).on('click','.remove_cart_item',function(){
 
 $(document).on('click','#confirm_btn',function(){
     $("#confirm_btn").attr("disabled", true);
-    var tester = "",address = $("textarea#address_box").val()+' '+$("#pincode").val(),
-    user_phone =$("#country_code").text()+$("#user_phone").text(),user_name = $("#user_name").text();
+    var tester = "",user_phone =$("#country_code").text()+$("#user_phone").text(),user_name = $("#user_name").text();
     local_get('cart') == null ? tester += "Cart is empty. " : (local_get('cart').length == 0) ? tester += "Cart is empty. " : false;
     user_name   == "" ? tester += "Please provide Name. " : false;
+
+    var address = ($("textarea#address_box").val().indexOf($("#pincode").val()) !== -1 ) ? $("textarea#address_box").val() : $("textarea#address_box").val()+' '+$("#pincode").val();
+
     $("#user_phone").text()  == "" ? tester += "Please provide Phone. " : false;
     ($("textarea#address_box").val() == "") ? tester += "Please provide Address. " : false;
     var user = {"name":user_name,"phone":user_phone,"address":address};
@@ -508,6 +510,7 @@ $(document).on('click','#confirm_btn',function(){
             if(inv){
                 alert("Order placed with order id :"+ord+". Invoice is downloaded.");
                 local_set('cart',[]);
+                local_set('client',user);
                 update_cart_page();
                 navto("home");
             }
