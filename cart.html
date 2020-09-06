@@ -27,27 +27,27 @@
             <!-- <div class="col s12 m12 l12" style="text-align: center;">Online payment options</div> -->
 
             <div class="col s12 m12 l12 zero_pad">
-                <div class="col s6 m6 l4" > <img src="images/icons/cod.png" alt="" class="online_opts"></div>
-                <div class="col s6 m6 l6" >Cash on Delivery </div>
+                <div class="col s5 m6 l4" > <img src="images/icons/cod.png" alt="" class="online_opts"></div>
+                <div class="col s5 m6 l6" >Cash on Delivery </div>
                 <div class="col s2 m2 l2" ><label><input name="mop" value="cod" checked type="radio" /><span></span></label></div>
             </div>
 
 
             <div class="col s12 m12 l12 zero_pad">
-                <div class="col s6 m6 l4" > <img src="images/icons/gpay.png"     alt="" class="online_opts"> Google Pay </div>
-                <div class="col s6 m6 l6" >+91-9768039997</div>
+                <div class="col s5 m6 l4" > <img src="images/icons/gpay.png"     alt="" class="online_opts"> Google Pay </div>
+                <div class="col s5 m6 l6" >+91-9768039997</div>
                 <div class="col s2 m2 l2" ><label><input name="mop" value="gpay" type="radio" /><span></span></label></div>
             </div>
 
             <div class="col s12 m12 l12 zero_pad">
-                <div class="col s6 m6 l4" > <img src="images/icons/paytm.png"    alt="" class="online_opts"> Paytm      </div>
-                <div class="col s6 m6 l6" >+91-9768039997</div>
+                <div class="col s5 m6 l4" > <img src="images/icons/paytm.png"    alt="" class="online_opts"> Paytm      </div>
+                <div class="col s5 m6 l6" >+91-9768039997</div>
                 <div class="col s2 m2 l2" ><label><input name="mop" value="paytm" type="radio" /><span></span></label></div>
             </div>
 
             <div class="col s12 m12 l12 zero_pad">
-                <div class="col s6 m6 l4" > <img src="images/icons/phonepe.png"  alt="" class="online_opts"> Phone Pe   </div>
-                <div class="col s6 m6 l6" >+91-9892916004</div>
+                <div class="col s5 m6 l4" > <img src="images/icons/phonepe.png"  alt="" class="online_opts"> Phone Pe   </div>
+                <div class="col s5 m6 l6" >+91-9892916004</div>
                 <div class="col s2 m2 l2" ><label><input name="mop" value="phonepe" type="radio" /><span></span></label></div>
             </div>
 
@@ -62,4 +62,11 @@
 
 <script>
 update_cart_page();
+
+if(local_get('client') != null){
+    var client = local_get('client');
+    $("textarea#address_box").val(client.address);
+    $("#user_name").text(client.name);
+}
+
 </script>
