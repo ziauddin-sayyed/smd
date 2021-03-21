@@ -1,0 +1,452 @@
+{
+    "1": {
+        "id": "1",
+        "name": "Sunflower Oil",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "2": {
+        "id": "2",
+        "name": "Blended Oil",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "3": {
+        "id": "3",
+        "name": "Rice Bran Oil",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "4": {
+        "id": "4",
+        "name": "Groundnut oil",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "5": {
+        "id": "5",
+        "name": "Olive Oil ",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "6": {
+        "id": "6",
+        "name": "Mustard Oil ",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "7": {
+        "id": "7",
+        "name": "Other Oils",
+        "category_id": "2",
+        "is_active": "1"
+    },
+    "8": {
+        "id": "8",
+        "name": "Tea ",
+        "category_id": "1",
+        "is_active": "1"
+    },
+    "9": {
+        "id": "9",
+        "name": "Coffee",
+        "category_id": "1",
+        "is_active": "1"
+    },
+    "10": {
+        "id": "10",
+        "name": "Green Tea ",
+        "category_id": "1",
+        "is_active": "1"
+    },
+    "11": {
+        "id": "11",
+        "name": "Health Drinks",
+        "category_id": "1",
+        "is_active": "1"
+    },
+    "12": {
+        "id": "12",
+        "name": "Ghee ",
+        "category_id": "3",
+        "is_active": "1"
+    },
+    "13": {
+        "id": "13",
+        "name": "Vanaspati",
+        "category_id": "3",
+        "is_active": "1"
+    },
+    "14": {
+        "id": "14",
+        "name": "Dals",
+        "category_id": "4",
+        "is_active": "1"
+    },
+    "15": {
+        "id": "15",
+        "name": "Pulses",
+        "category_id": "4",
+        "is_active": "1"
+    },
+    "16": {
+        "id": "16",
+        "name": "Flours",
+        "category_id": "7",
+        "is_active": "1"
+    },
+    "17": {
+        "id": "17",
+        "name": "Grains",
+        "category_id": "7",
+        "is_active": "1"
+    },
+    "18": {
+        "id": "18",
+        "name": "Packed Masala",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "19": {
+        "id": "19",
+        "name": "Cooking Pastes",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "20": {
+        "id": "20",
+        "name": "Kolam Rice",
+        "category_id": "11",
+        "is_active": "1"
+    },
+    "21": {
+        "id": "21",
+        "name": "Basmati Rice",
+        "category_id": "11",
+        "is_active": "1"
+    },
+    "22": {
+        "id": "22",
+        "name": "Other Rice Products",
+        "category_id": "11",
+        "is_active": "1"
+    },
+    "23": {
+        "id": "23",
+        "name": "Salt ",
+        "category_id": "13",
+        "is_active": "1"
+    },
+    "24": {
+        "id": "24",
+        "name": "Sugar",
+        "category_id": "13",
+        "is_active": "1"
+    },
+    "25": {
+        "id": "25",
+        "name": "Jaggery",
+        "category_id": "13",
+        "is_active": "1"
+    },
+    "26": {
+        "id": "26",
+        "name": "Bakery",
+        "category_id": "14",
+        "is_active": "1"
+    },
+    "27": {
+        "id": "27",
+        "name": "Cakes",
+        "category_id": "14",
+        "is_active": "1"
+    },
+    "28": {
+        "id": "28",
+        "name": "Chocolates",
+        "category_id": "15",
+        "is_active": "1"
+    },
+    "29": {
+        "id": "29",
+        "name": "Biscuits",
+        "category_id": "15",
+        "is_active": "1"
+    },
+    "30": {
+        "id": "30",
+        "name": "BUTTER MILK",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "31": {
+        "id": "31",
+        "name": "Cheese Blocks",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "32": {
+        "id": "32",
+        "name": "Cheese Slices",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "33": {
+        "id": "33",
+        "name": "Cheese Spread",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "34": {
+        "id": "34",
+        "name": "Cheese Cubes",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "36": {
+        "id": "36",
+        "name": "Curds",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "37": {
+        "id": "37",
+        "name": "Fresh Cream",
+        "category_id": "17",
+        "is_active": "1"
+    },
+    "38": {
+        "id": "38",
+        "name": "McCaIN ",
+        "category_id": "18",
+        "is_active": "1"
+    },
+    "39": {
+        "id": "39",
+        "name": "Triveni",
+        "category_id": "18",
+        "is_active": "1"
+    },
+    "40": {
+        "id": "40",
+        "name": "Soaps\r\n",
+        "category_id": "20",
+        "is_active": "1"
+    },
+    "41": {
+        "id": "41",
+        "name": "Deo",
+        "category_id": "20",
+        "is_active": "1"
+    },
+    "42": {
+        "id": "42",
+        "name": "Heat & Eat",
+        "category_id": "21",
+        "is_active": "1"
+    },
+    "43": {
+        "id": "43",
+        "name": "Papad",
+        "category_id": "21",
+        "is_active": "1"
+    },
+    "45": {
+        "id": "45",
+        "name": "Pickles",
+        "category_id": "21",
+        "is_active": "1"
+    },
+    "46": {
+        "id": "46",
+        "name": "Ready to Cook",
+        "category_id": "21",
+        "is_active": "1"
+    },
+    "47": {
+        "id": "47",
+        "name": "Soups",
+        "category_id": "21",
+        "is_active": "1"
+    },
+    "48": {
+        "id": "48",
+        "name": "Vermicelli ",
+        "category_id": "21",
+        "is_active": "1"
+    },
+    "49": {
+        "id": "49",
+        "name": "Cakes ",
+        "category_id": "25",
+        "is_active": "1"
+    },
+    "50": {
+        "id": "50",
+        "name": "Ice creams",
+        "category_id": "25",
+        "is_active": "1"
+    },
+    "51": {
+        "id": "51",
+        "name": "Snacks",
+        "category_id": "26",
+        "is_active": "1"
+    },
+    "52": {
+        "id": "52",
+        "name": "Farsan",
+        "category_id": "26",
+        "is_active": "1"
+    },
+    "53": {
+        "id": "53",
+        "name": "Soaps",
+        "category_id": "28",
+        "is_active": "1"
+    },
+    "54": {
+        "id": "54",
+        "name": "Baby Oils",
+        "category_id": "28",
+        "is_active": "1"
+    },
+    "55": {
+        "id": "55",
+        "name": "Diapers",
+        "category_id": "28",
+        "is_active": "1"
+    },
+    "56": {
+        "id": "56",
+        "name": "Baby Powders",
+        "category_id": "28",
+        "is_active": "1"
+    },
+    "57": {
+        "id": "57",
+        "name": "Detergents",
+        "category_id": "30",
+        "is_active": "1"
+    },
+    "58": {
+        "id": "58",
+        "name": "Washing Bars",
+        "category_id": "30",
+        "is_active": "1"
+    },
+    "59": {
+        "id": "59",
+        "name": "Washing Liquids",
+        "category_id": "30",
+        "is_active": "1"
+    },
+    "60": {
+        "id": "60",
+        "name": "Fruits",
+        "category_id": "22",
+        "is_active": "1"
+    },
+    "61": {
+        "id": "61",
+        "name": "Vegetables",
+        "category_id": "22",
+        "is_active": "1"
+    },
+    "62": {
+        "id": "62",
+        "name": "Mutton",
+        "category_id": "23",
+        "is_active": "1"
+    },
+    "63": {
+        "id": "63",
+        "name": "Fish",
+        "category_id": "23",
+        "is_active": "1"
+    },
+    "64": {
+        "id": "64",
+        "name": "Chicken",
+        "category_id": "23",
+        "is_active": "1"
+    },
+    "65": {
+        "id": "65",
+        "name": "Hair Oils",
+        "category_id": "20",
+        "is_active": "1"
+    },
+    "66": {
+        "id": "66",
+        "name": "Everest Masala\r\n",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "68": {
+        "id": "68",
+        "name": "Shan Masala",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "69": {
+        "id": "69",
+        "name": "Goldiee Masala",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "70": {
+        "id": "70",
+        "name": "Suhana Masala",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "71": {
+        "id": "71",
+        "name": "Floor Cleaner",
+        "category_id": "29",
+        "is_active": "1"
+    },
+    "72": {
+        "id": "72",
+        "name": "Hand Wash & Sanitizer ",
+        "category_id": "29",
+        "is_active": "1"
+    },
+    "73": {
+        "id": "73",
+        "name": "Room Freshner",
+        "category_id": "29",
+        "is_active": "1"
+    },
+    "74": {
+        "id": "74",
+        "name": "Honey",
+        "category_id": "1",
+        "is_active": "1"
+    },
+    "75": {
+        "id": "75",
+        "name": "Dish Wash Bars ",
+        "category_id": "29",
+        "is_active": "1"
+    },
+    "76": {
+        "id": "76",
+        "name": "Dish Washimg Liquid",
+        "category_id": "29",
+        "is_active": "1"
+    },
+    "77": {
+        "id": "77",
+        "name": "Khada Masala",
+        "category_id": "9",
+        "is_active": "1"
+    },
+    "78": {
+        "id": "78",
+        "name": "Oral Care",
+        "category_id": "20",
+        "is_active": "1"
+    }
+}

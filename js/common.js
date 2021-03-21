@@ -132,12 +132,30 @@ function ImgError(img) {
     img.src = "images/logo_n.jpeg";
 }
 
-var type = 'POST';
-var params = {'api':'get_items'};
-var all_items =  JSON.parse(requester(url,type,params));
-// console.log(all_items);
-local_set('items',all_items);
-local_set('sub_cats',JSON.parse(requester(url,type,{'api':'get_sub_cat'})));
+// var type = 'POST';
+// var params = {'api':'get_items'};
+// var all_items =  JSON.parse(requester(url,type,params));
+// // console.log(all_items);
+// local_set('items',all_items);
+// local_set('sub_cats',JSON.parse(requester(url,type,{'api':'get_sub_cat'})));
+
+
+// var type = 'POST';
+// var params = {'api':'get_items'};
+// var all_items =  JSON.parse(requester(url,type,params));
+// local_set('items',all_items);
+// local_set('sub_cats',JSON.parse(requester(url,type,{'api':'get_sub_cat'})));
+
+$.getJSON("js/items.json", function(all_items){
+    local_set('items',all_items);
+    console.log(all_items);
+});
+$.getJSON("js/sub_cats.json", function(sub_cats){
+    local_set('sub_cats',sub_cats);
+    console.log(sub_cats);
+});
+
+
 
 
 function update_home() {
