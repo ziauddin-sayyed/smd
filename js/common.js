@@ -148,11 +148,11 @@ function ImgError(img) {
 
 $.getJSON("js/items.json", function(all_items){
     local_set('items',all_items);
-    console.log(all_items);
+    // console.log(all_items);
 });
 $.getJSON("js/sub_cats.json", function(sub_cats){
     local_set('sub_cats',sub_cats);
-    console.log(sub_cats);
+    // console.log(sub_cats);
 });
 
 
